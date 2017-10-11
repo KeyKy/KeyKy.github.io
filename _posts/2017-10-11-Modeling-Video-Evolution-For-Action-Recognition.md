@@ -43,11 +43,11 @@ up to time 𝑡, x_1:t. For example, the vector v_t can be obtained by applying 
 3. Define 𝜓(v; u) = u𝑇 ⋅ v. 
 4. Namely, the learning to rank problem optimizes the parameters u of the function 𝜓(v; u), such that ∀𝑖, 𝑗 , v_i ≻ v_j ⇐⇒ u𝑇 ⋅v_i > u𝑇 ⋅v_j.
 
-这里的思想是找到一个向量u,使得v_i和v_j在该方向上的投影仍然满足时序排序，那么该向量就能表征时序上的演变，也能把许多帧用一个向量表示。论文中给出了向量u的优化求法，据论文所述是使用RankSVM：
+这里的思想是找到一个向量u,使得v_i和v_j在该方向上的投影仍然满足时序排序，那么该向量就能表征时序上的演变，也能把许多帧用一个向量表示。论文中给出了向量u的优化求法，据论文所述是使用RankSVM，
 
 <img src='../images/Modeling-Video-Evolution-For-Action-Recognition/2.png' width='400' align="center">
 
-
+条件1，u𝑇 ⋅ (vti − vtj ) ≥ 1 − 𝜖𝑖𝑗，即是要满足排序条件大于一个单位量并且有一个松弛因子，如果松弛因子过大会惩罚优化函数。在作者的开源代码(VideoDarwin.m)中作者是通过SVR来解决排序问题，既给每一帧赋予一个label，比如第一帧的label是1，第二帧是2，依次类推...然后训练一个SVR回归模型求得权重向量u。其实最简单的就是用线性回归进行求解，在论文中也表示这样也是可行的(any other linear learning to rank method can be employed to learn VideoDarwin)。
 
 ## Experiments
 
