@@ -10,24 +10,34 @@ title: Modeling Video Evolution For Action Recognition
 ## Introduction
 
 本文说在过去十年动作识别的研究主要是在设计时间空间(spatio-temporal)的特征：
+
   * from temporal interest points over dense sampling to dense trajectories
+  
   	 * [On space-time interest points]
     * [Learning realistic human actions from movies]
     * [Dense trajectories and motion boundary descriptors for action recognition]
+    
   * from gradient-based descriptors to motion-based and motion-compensated ones
+  
   	 * [Better exploiting motion for better action recognition]
+    
   * adoption of powerful encoding schemes, Fisher Vectors
+  
   	 * [Action recognition with improved trajectories]
 
-本文还提到从视觉上建模时序的演变信息比较困难：
+本文还提到从视觉上建模时序的演变信息比较困难，研究者们提出了很多方法建模时序信息：HMM，CRF等，具体看论文。
 
-```
 Modeling the video-wide temporal evolution of appearance in videos remains a challenging task, due to the large variability and complexity of video data. Actions are performed at largely varying speeds. Also the speed of the action often varies non-linearly within a single video.
-```
+
+本文对时序信息的建模思路的本质来源是：
+
+Nevertheless, it is clear that many actions have a characteristic temporal ordering.
+
 
 
 ## Related work
 
+略...
 
 ## VideoDarwin for action recognition
 
