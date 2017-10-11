@@ -29,7 +29,7 @@ Modeling the video-wide temporal evolution of appearance in videos remains a cha
 Nevertheless, it is clear that many actions have a characteristic temporal ordering. More precisely, given all the frames
 of the video, we learn how to arrange them in chronological order, based on the content of the frames.
 
-<img src='../images/Modeling-Video-Evolution-For-Action-Recognition/1.png' width='400' align="center" >
+<img src='../images/Modeling-Video-Evolution-For-Action-Recognition/1.png' width='600' align="center" >
 
 ## Related work
 
@@ -45,9 +45,19 @@ up to time 𝑡, x_1:t. For example, the vector v_t can be obtained by applying 
 
 这里的思想是找到一个向量u,使得v_i和v_j在该方向上的投影仍然满足时序排序，那么该向量就能表征时序上的演变，也能把许多帧用一个向量表示。论文中给出了向量u的优化求法，据论文所述是使用RankSVM，
 
-<img src='../images/Modeling-Video-Evolution-For-Action-Recognition/2.png' width='400' align="center">
+<img src='../images/Modeling-Video-Evolution-For-Action-Recognition/2.png' width='450' align="center">
 
 条件1，u𝑇 ⋅ (vti − vtj ) ≥ 1 − 𝜖𝑖𝑗，即是要满足排序条件大于一个单位量并且有一个松弛因子，如果松弛因子过大会惩罚优化函数。在作者的开源代码(VideoDarwin.m)中作者是通过SVR来解决排序问题，既给每一帧赋予一个label，比如第一帧的label是1，第二帧是2，依次类推...然后训练一个SVR回归模型求得权重向量u。其实最简单的就是用线性回归进行求解，在论文中也表示这样也是可行的(any other linear learning to rank method can be employed to learn VideoDarwin)。
+
+## Vector valued functions for VideoDarwin
+
+这节主要是提及上面没有解释的向量价值函数V的选取，论文中探寻了3种形式的向量价值函数：
+
+1. Independent Frame Representation. V(t) = x_t / ||x_t||
+2. Moving Average (MA). \sum_t:t+T { x_t }
+3. Time Varying Mean Vectors. m_t = 1/t * \sum_1:t { x_i }, v_t = m_t / ||m_t||
+
+作者通过实验证明第三种方式效果最好。
 
 ## Experiments
 
