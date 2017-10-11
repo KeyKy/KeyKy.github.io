@@ -79,7 +79,7 @@ VideoDarwin选取的特征：[HOG, HOF, MBH](http://blog.csdn.net/wzmsltw/articl
 
 ### 对比的baseline
 
-选择的baseline对比方法是**local** 和 **TP**：
+选择的baseline对比方法是**local** 和 **TP**， For these baselines, at frame level we apply non-linear feature maps (i.e. power normalization for Fisher vectors and chi-squared kernel maps for bag-of-words based methods)：
 
 **local**: As a first baseline we use the state-of-the-art trajectory features (i.e. improved trajectories and dense trajectories) and pipelines as [1,2]. As this trajectory based baseline mainly considers local temporal information we refer to this baseline as **local**. 
 
