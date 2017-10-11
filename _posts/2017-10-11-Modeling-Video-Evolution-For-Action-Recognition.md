@@ -3,7 +3,7 @@ layout: post
 title: Modeling Video Evolution For Action Recognition
 ---
 
-[pdf](https://www.robots.ox.ac.uk/~vgg/rg/papers/videoDarwin.pdf)[code](https://bitbucket.org/bfernando/videodarwin)
+\[[pdf]\](https://www.robots.ox.ac.uk/~vgg/rg/papers/videoDarwin.pdf)\[[code]\](https://bitbucket.org/bfernando/videodarwin)
 
 ## Abstract
 
