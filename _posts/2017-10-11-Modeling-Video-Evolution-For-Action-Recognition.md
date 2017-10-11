@@ -46,7 +46,7 @@ of the video, we learn how to arrange them in chronological order, based on the 
 
 这里的思想是找到一个向量\\(u\\),使得\\(v_i\\)和\\(v_j\\)在该方向上的投影仍然满足时序排序，那么该向量就能表征时序上的演变，也能把许多帧用一个向量表示。论文中给出了向量\\(u\\)的优化求法，据论文所述是使用RankSVM，
 
-$$\mathop{\arg\min}\limits_{u} \frac{1}{2}\left\|ut\right\|^2 + C\sum_{\forall i,j v_{t_i} > v_{t_j}} \epsilon_{ij}$$
+$$\mathop{\arg\min}\limits_{u} \frac{1}{2}\left\|u\right\|^2 + C\sum_{\forall i,j v_{t_i} > v_{t_j}} \epsilon_{ij}$$
 
 $$s.t. u^T \cdot (v_{t_i} − v_{t_j} ) \geq 1 − \epsilon_{ij}$$
 
