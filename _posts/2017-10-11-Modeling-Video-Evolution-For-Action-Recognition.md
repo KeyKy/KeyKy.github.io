@@ -20,7 +20,7 @@ title: Modeling Video Evolution For Action Recognition
   * from gradient-based descriptors to motion-based and motion-compensated ones.
   	  1. [Better exploiting motion for better action recognition]
   * adoption of powerful encoding schemes, Fisher Vectors.
-  	  2. [Action recognition with improved trajectories]
+  	  1. [Action recognition with improved trajectories]
 
 本文还提到从视觉上建模时序的演变信息比较困难，研究者们提出了很多方法建模时序信息：HMM，CRF，deep network.
 
