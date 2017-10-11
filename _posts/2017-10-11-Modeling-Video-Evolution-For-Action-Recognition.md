@@ -100,3 +100,10 @@ as **local**.
 [2] H. Wang and C. Schmid. Action recognition with improved trajectories. In ICCV, 2013. 1, 2, 5, 6, 8
 
 [3] S. Lazebnik, C. Schmid, and J. Ponce. Beyond bags of features: Spatial pyramid matching for recognizing natural scene categories. In CVPR, 2006. 1, 5
+
+## 相关工程和代码
+
+1. http://lear.inrialpes.fr/~wang/improved_trajectories
+2. 
+
+
