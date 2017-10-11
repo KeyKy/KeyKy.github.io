@@ -40,8 +40,7 @@ of the video, we learn how to arrange them in chronological order, based on the 
 ## Modeling Video-wide temporal evolution (VideoDarwin)
 
 1. Video \\(X = [x_1, x_2, ..., x_3]\\) composed of 𝑛 frames and frame at 𝑡 is represented by vector.
-2. Define a vector valued function \\({\sl V}\\). The output of the vector valued function v_t is obtained by processing all the frames
-up to time 𝑡, x_1:t. For example, the vector v_t can be obtained by applying the mean operation on all of the frames x_1:t.
+2. Define a vector valued function \\(V\\). The output of the vector valued function \\(v_t\\) is obtained by processing all the frames up to time \\(t\\), \\(x_{1:t}\\). For example, the vector \\(v_t\\) can be obtained by applying the mean operation on all of the frames \\(x_{1:t}\\).
 3. Define 𝜓(v; u) = u^𝑇 ⋅ v. 
 4. Namely, the learning to rank problem optimizes the parameters u of the function 𝜓(v; u), such that ∀𝑖, 𝑗 , v_i ≻ v_j ⇐⇒ u^𝑇 ⋅v_i > u^𝑇 ⋅v_j.
 
