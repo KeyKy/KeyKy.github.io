@@ -105,6 +105,5 @@ as **local**.
 
 1. http://lear.inrialpes.fr/~wang/improved_trajectories
 2. https://lear.inrialpes.fr/people/wang/dense_trajectories
-3.
 
 
