@@ -50,7 +50,7 @@ $$\mathop{\arg\min}\limits_{u} \frac{1}{2}\left\|u\right\|^2 + C\sum_{\forall i,
 
 $$s.t. u^T \cdot (v_{t_i} − v_{t_j} ) \geq 1 − \epsilon_{ij}$$
 
-$$\epsilon_ij \geq 0$$
+$$\epsilon_{ij} \geq 0$$
 
 条件1，\\(u^T \cdot (v_{t_i} − v_{t_j} ) \geq 1 − \epsilon_{ij}\\)，即是要满足排序条件大于一个单位量并且有一个松弛因子，如果松弛因子过大会惩罚优化函数。在作者的开源代码(VideoDarwin.m)中作者是通过SVR来解决排序问题(因为SVR比RankSVM要快，并且具有相似的结果)，既给每一帧赋予一个label，比如第一帧的label是1，第二帧是2，依次类推...然后训练一个SVR回归模型求得权重向量u。其实最简单的就是用线性回归进行求解，在论文中也表示这样也是可行的(any other linear learning to rank method can be employed to learn VideoDarwin)。
 
