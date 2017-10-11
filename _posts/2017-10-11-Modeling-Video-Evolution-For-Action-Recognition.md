@@ -70,7 +70,7 @@ $$\epsilon_{ij} \geq 0$$
 
 ### VideoDarwin
 
-VideoDarwin选取的特征：[HOG, HOF, MBH](http://blog.csdn.net/wzmsltw/article/details/52752587) and TRJ. 编码方法有用到：GMMs, PCA, Fisher vectors, bag-of-words，在实验中作者还提到下面几种编码方法:
+VideoDarwin选取的特征：[HOG, HOF, MBH](http://blog.csdn.net/wzmsltw/article/details/52752587) and TRJ. 在实验中作者还提到VideoDarwin几种变型:
 
 1. Forward VideoDarwin (FDVD)，就是将帧按时间\\([x_1,x_2,...,x_n]\\)进行训练得到\\(u_{fow}\\).
 2. Reverse & Forward VideoDarwin (RFDVD)，就是既按上面方式得到\\(u_{fow}\\)，然后将帧逆序\\([x_n,x_{n-1},...,x_1]\\)进行训练得到\\(u_{rev}\\).
@@ -81,8 +81,7 @@ VideoDarwin选取的特征：[HOG, HOF, MBH](http://blog.csdn.net/wzmsltw/articl
 
 选择的baseline对比方法是**local** 和 **TP**：
 
-**local**: As a first baseline we use the state-of-the-art trajectory features (i.e. improved trajectories and dense trajectories) and pipelines as [1,2]. As this trajectory based baseline mainly considers local temporal information we refer to this baseline
-as **local**. 
+**local**: As a first baseline we use the state-of-the-art trajectory features (i.e. improved trajectories and dense trajectories) and pipelines as [1,2]. As this trajectory based baseline mainly considers local temporal information we refer to this baseline as **local**. 
 
 **TP**: We also compare with temporal pyramids (**TP**), by first splitting the video into two equal size subvideos, then computing a representation for each of them like spatial pyramids [3].
 
