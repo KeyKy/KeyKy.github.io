@@ -65,13 +65,15 @@ up to time 𝑡, x_1:t. For example, the vector v_t can be obtained by applying 
 
 ## Experiments
 
-在实验中作者还提到:
+### VideoDarwin
+VideoDarwin选取的特征：[HOG, HOF, MBH](http://blog.csdn.net/wzmsltw/article/details/52752587) and TRJ. 编码方法有用到：GMMs, PCA, Fisher vectors, bag-of-words，在实验中作者还提到下面几种编码方法:
 
 1. Forward VideoDarwin(FDVD)，就是将帧按时间[x_1,x_2,...,x_n]进行训练得到u_fow.
 2. Reverse & Forward VideoDarwin by RFDVD，就是既按上面方式得到u_fow，然后将帧逆序[x_n,x_n-1,...,x_1]进行训练得到u_rev.
 3. non-linear forward VideoDarwin by NL-FDVD，就是对特征进行一个非线性映射然后再进行FDVD训练。
 4. nonlinear reverse & forward VideoDarwin by NL-RFDVD，就是对特征进行一个非线性映射然后再进行RFDVD训练。
 
+### 对比的baseline
 选择的baseline对比方法是：
 
 As a first baseline we use the state-of-the-art trajectory features (i.e. improved trajectories and dense trajectories) and pipelines as [1,2]. As this trajectory based baseline mainly considers local temporal information we refer to this baseline
@@ -79,8 +81,7 @@ as **local**.
 
 We also compare with temporal pyramids (**TP**), by first splitting the video into two equal size subvideos, then computing a representation for each of them like spatial pyramids [3].
 
-VideoDarwin选取的特征：(HOG, HOF, MBH and TRJ). 编码方法有用到：GMMs, PCA, Fisher vectors, bag-of-words
-
+### 对比结果
 对比的结果如下，这里就选了HMDB51数据集的结果展示，剩下的数据集的类似效果，详见论文。
 
 <img src='../images/Modeling-Video-Evolution-For-Action-Recognition/4.png' width='450'>
