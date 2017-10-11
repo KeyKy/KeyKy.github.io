@@ -18,7 +18,12 @@ title: Modeling Video Evolution For Action Recognition
   	* [Better exploiting motion for better action recognition]
   * adoption of powerful encoding schemes, Fisher Vectors
   	* [Action recognition with improved trajectories]
-  
+
+本文还提到从视觉上建模时序的演变信息比较困难：
+
+```
+Modeling the video-wide temporal evolution of appearance in videos remains a challenging task, due to the large variability and complexity of video data. Actions are performed at largely varying speeds. Also the speed of the action often varies non-linearly within a single video.
+```
 
 
 ## Related work
