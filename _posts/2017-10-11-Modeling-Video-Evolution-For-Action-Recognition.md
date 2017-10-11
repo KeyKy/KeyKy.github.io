@@ -37,6 +37,8 @@ of the video, we learn how to arrange them in chronological order, based on the 
 
 略...
 
+$$n==x$$
+
 ## Modeling Video-wide temporal evolution (VideoDarwin)
 
 1. Video X = [x_1, x_2, ..., x_3] composed of 𝑛 frames and frame at 𝑡 is represented by vector.
