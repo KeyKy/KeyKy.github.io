@@ -12,13 +12,13 @@ title: Modeling Video Evolution For Action Recognition
 本文说在过去十年动作识别的研究主要是在设计时间空间(spatio-temporal)的特征：
 
   * from temporal interest points over dense sampling to dense trajectories.
-  	 * [On space-time interest points]
-  	 * [Learning realistic human actions from movies]
-  	 * [Dense trajectories and motion boundary descriptors for action recognition]
+  	  * [On space-time interest points]
+  	  * [Learning realistic human actions from movies]
+  	  * [Dense trajectories and motion boundary descriptors for action recognition]
   * from gradient-based descriptors to motion-based and motion-compensated ones.
-  	 * [Better exploiting motion for better action recognition]
+  	  * [Better exploiting motion for better action recognition]
   * adoption of powerful encoding schemes, Fisher Vectors.
-  	 * [Action recognition with improved trajectories]
+  	  * [Action recognition with improved trajectories]
 
 本文还提到从视觉上建模时序的演变信息比较困难，研究者们提出了很多方法建模时序信息：HMM，CRF等，具体看论文。
 
@@ -36,9 +36,14 @@ of the video, we learn how to arrange them in chronological order, based on the 
 ## Modeling Video-wide temporal evolution (VideoDarwin)
 
 1. Video X = [x_1, x_2, ..., x_3] composed of 𝑛 frames and frame at 𝑡 is represented by vector.
-2. define a vector valued function 𝑉. The output of the vector valued function v_t is obtained by processing all the frames
+2. Define a vector valued function 𝑉. The output of the vector valued function v_t is obtained by processing all the frames
 up to time 𝑡, x_1:t. For example, the vector v_t can be obtained by applying the mean operation on all of the frames x_1:t.
+3. Define 𝜓(v; u) = u𝑇 ⋅ v. 
+4. Namely, the learning to rank problem optimizes the parameters u of the function 𝜓(v; u), such that ∀𝑖, 𝑗 , v_i ≻ v_j ⇐⇒ u𝑇 ⋅v_i > u𝑇 ⋅v_j.
 
+这里的思想是找到一个向量u,使得v_i和v_j在该方向上的投影仍然满足时序排序，那么该向量就能表征时序上的演变，也能把许多帧用一个向量表示。论文中给出了向量u的优化求法：
+
+![_config.yml]({{ site.baseurl }}/images/Modeling-Video-Evolution-For-Action-Recognition/2.png)
 
 
 
