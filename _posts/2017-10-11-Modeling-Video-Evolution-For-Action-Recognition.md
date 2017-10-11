@@ -26,9 +26,8 @@ Modeling the video-wide temporal evolution of appearance in videos remains a cha
 
 本文对时序信息的建模思路的本质来源是：
 
-Nevertheless, it is clear that many actions have a characteristic temporal ordering.
-
-
+Nevertheless, it is clear that many actions have a characteristic temporal ordering. More precisely, given all the frames
+of the video, we learn how to arrange them in chronological order, based on the content of the frames.
 
 ## Related work
 
