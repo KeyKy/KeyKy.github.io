@@ -13,6 +13,16 @@ title: Modeling Video Evolution For Action Recognition
 
 本文说在过去十年动作识别的研究主要是在设计时间空间(spatio-temporal)的特征：
 
+1. Dog
+    1. German Shepherd
+    2. Belgian Shepherd
+        1. Malinois
+        2. Groenendael
+        3. Tervuren
+2. Cat
+    1. Siberian
+    2. Siamese
+
 本文还提到从视觉上建模时序的演变信息比较困难，研究者们提出了很多方法建模时序信息：HMM，CRF，deep network.
 
 Modeling the video-wide temporal evolution of appearance in videos remains a challenging task, due to the **large variability and complexity of video data**. Actions are performed at **largely varying speeds**. Also the speed of the action often **varies non-linearly** within a single video.
@@ -46,9 +56,9 @@ up to time 𝑡, x_1:t. For example, the vector v_t can be obtained by applying 
 
 这节主要是提及上面没有解释的向量价值函数V的选取，论文中探寻了3种形式的向量价值函数：
 
-1. Independent Frame Representation. <!-- V(t) = x_t / ||x_t|| . -->
-2. Moving Average (MA). <!--\sum_t:t+T { x_t }  -->.
-3. Time Varying Mean Vectors.  <!--m_t = 1/t * \sum_1:t { x_i }, v_t = m_t / ||m_t|| .-->
+1. Independent Frame Representation. 
+2. Moving Average (MA).
+3. Time Varying Mean Vectors.
 
 作者通过实验证明第三种方式效果最好。
 
