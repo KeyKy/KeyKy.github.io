@@ -14,8 +14,6 @@ avatar: https://avatars0.githubusercontent.com/u/2967075?v=4&s=400&u=4462cd59a80
 #
 # Flags below are optional
 #
-markdown: kramdown
-mathjax: true
 
 # Includes an icon in the footer for each username you enter
 footer-links:
