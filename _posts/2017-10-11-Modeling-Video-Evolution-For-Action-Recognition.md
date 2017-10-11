@@ -14,19 +14,19 @@ title: Modeling Video Evolution For Action Recognition
 本文说在过去十年动作识别的研究主要是在设计时间空间(spatio-temporal)的特征：
 
   * from temporal interest points over dense sampling to dense trajectories.
-  	  * [On space-time interest points]
-  	  * [Learning realistic human actions from movies]
-  	  * [Dense trajectories and motion boundary descriptors for action recognition]
+  	  1. [On space-time interest points]
+  	  2. [Learning realistic human actions from movies]
+  	  3. [Dense trajectories and motion boundary descriptors for action recognition]
   * from gradient-based descriptors to motion-based and motion-compensated ones.
-  	  * [Better exploiting motion for better action recognition]
+  	  1. [Better exploiting motion for better action recognition]
   * adoption of powerful encoding schemes, Fisher Vectors.
-  	  * [Action recognition with improved trajectories]
+  	  2. [Action recognition with improved trajectories]
 
-本文还提到从视觉上建模时序的演变信息比较困难，研究者们提出了很多方法建模时序信息：HMM，CRF等，具体看论文。
+本文还提到从视觉上建模时序的演变信息比较困难，研究者们提出了很多方法建模时序信息：HMM，CRF，deep network.
 
-Modeling the video-wide temporal evolution of appearance in videos remains a challenging task, due to the large variability and complexity of video data. Actions are performed at largely varying speeds. Also the speed of the action often varies non-linearly within a single video.
+Modeling the video-wide temporal evolution of appearance in videos remains a challenging task, due to the **large variability and complexity of video data**. Actions are performed at **largely varying speeds**. Also the speed of the action often **varies non-linearly** within a single video.
 
-本文对时序信息的建模思路的本质来源是：
+而本文提出一种新的时序信息的建模思路，其本质来源是：
 
 Nevertheless, it is clear that many actions have a characteristic temporal ordering. More precisely, given all the frames
 of the video, we learn how to arrange them in chronological order, based on the content of the frames.
@@ -104,6 +104,7 @@ as **local**.
 ## 相关工程和代码
 
 1. http://lear.inrialpes.fr/~wang/improved_trajectories
-2. 
+2. https://lear.inrialpes.fr/people/wang/dense_trajectories
+3.
 
 
