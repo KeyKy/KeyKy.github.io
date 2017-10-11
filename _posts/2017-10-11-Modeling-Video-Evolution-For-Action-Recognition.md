@@ -44,7 +44,7 @@ of the video, we learn how to arrange them in chronological order, based on the 
 3. Define \\(\Psi(v; u) = u^T \cdot v\\). 
 4. Namely, the learning to rank problem optimizes the parameters \\(u\\) of the function \\(\Psi(v; u)\\), such that \\(\forall i, j , v_i > v_j \Leftrightarrow u^T ⋅v_i > u^T ⋅v_j \\).
 
-这里的思想是找到一个向量u,使得v_i和v_j在该方向上的投影仍然满足时序排序，那么该向量就能表征时序上的演变，也能把许多帧用一个向量表示。论文中给出了向量u的优化求法，据论文所述是使用RankSVM，
+这里的思想是找到一个向量\\(u\\),使得\\(v_i\\)和\\(v_j\\)在该方向上的投影仍然满足时序排序，那么该向量就能表征时序上的演变，也能把许多帧用一个向量表示。论文中给出了向量\\(u\\)的优化求法，据论文所述是使用RankSVM，
 
 <img src='../images/Modeling-Video-Evolution-For-Action-Recognition/2.png' width='450'>
 
