@@ -42,13 +42,13 @@ of the video, we learn how to arrange them in chronological order, based on the 
 1. Video \\(X = [x_1, x_2, ..., x_3]\\) composed of 𝑛 frames and frame at 𝑡 is represented by vector.
 2. Define a vector valued function \\(V\\). The output of the vector valued function \\(v_t\\) is obtained by processing all the frames up to time \\(t\\), \\(x_{1:t}\\). For example, the vector \\(v_t\\) can be obtained by applying the mean operation on all of the frames \\(x_{1:t}\\).
 3. Define \\(\Psi(v; u) = u^T \cdot v\\). 
-4. Namely, the learning to rank problem optimizes the parameters \\(u\\) of the function \\(\Psi(v; u)\\), such that \\(\forall i, j , v_i > v_j == u^T ⋅v_i > u^T ⋅v_j \\).
+4. Namely, the learning to rank problem optimizes the parameters \\(u\\) of the function \\(\Psi(v; u)\\), such that \\(\forall i, j , v_i > v_j \Leftrightarrow u^T ⋅v_i > u^T ⋅v_j \\).
 
 这里的思想是找到一个向量u,使得v_i和v_j在该方向上的投影仍然满足时序排序，那么该向量就能表征时序上的演变，也能把许多帧用一个向量表示。论文中给出了向量u的优化求法，据论文所述是使用RankSVM，
 
 <img src='../images/Modeling-Video-Evolution-For-Action-Recognition/2.png' width='450'>
 
-条件1，u^𝑇 ⋅ (v\_ti − v\_tj ) ≥ 1 − 𝜖\_𝑖𝑗，即是要满足排序条件大于一个单位量并且有一个松弛因子，如果松弛因子过大会惩罚优化函数。在作者的开源代码(VideoDarwin.m)中作者是通过SVR来解决排序问题(因为SVR比RankSVM要快，并且具有相似的结果)，既给每一帧赋予一个label，比如第一帧的label是1，第二帧是2，依次类推...然后训练一个SVR回归模型求得权重向量u。其实最简单的就是用线性回归进行求解，在论文中也表示这样也是可行的(any other linear learning to rank method can be employed to learn VideoDarwin)。
+条件1，\\(u^T \cdot (v_{t_i} − v_{t_j} ) \geq 1 − \epsilon_ij\\)，即是要满足排序条件大于一个单位量并且有一个松弛因子，如果松弛因子过大会惩罚优化函数。在作者的开源代码(VideoDarwin.m)中作者是通过SVR来解决排序问题(因为SVR比RankSVM要快，并且具有相似的结果)，既给每一帧赋予一个label，比如第一帧的label是1，第二帧是2，依次类推...然后训练一个SVR回归模型求得权重向量u。其实最简单的就是用线性回归进行求解，在论文中也表示这样也是可行的(any other linear learning to rank method can be employed to learn VideoDarwin)。
 
 ## Vector valued functions for VideoDarwin
 
