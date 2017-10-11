@@ -3,6 +3,8 @@ layout: post
 title: Modeling Video Evolution For Action Recognition
 ---
 
+[pdf](https://www.robots.ox.ac.uk/~vgg/rg/papers/videoDarwin.pdf)[code](https://bitbucket.org/bfernando/videodarwin)
+
 ## Abstract
 
 本文展示了一种能够捕获视频时序信息的方法。该方法假定能时序性排序视频帧的函数(a function capable of ording the frames of a video)也能非常好的捕获视频中视觉上的演变(evolution of the appearance within the video)。因此本文的重点是，作者通过使用ranking machine学习这样的排序函数并且使用其对应的参数作为一个新的视频表征。并在通用动作识别数据集Hollywood2、HMDB51、细颗粒度的动作MPII-cooking activities和姿势数据集Chalearn中有7%-10%的提升。同时该方法是一种对视频视觉特征的编码，独立于特征提取方法，也就是说视觉特征提取方法越好，编码后对视频动作识别效果也能相应有提升。
@@ -47,7 +49,7 @@ up to time 𝑡, x_1:t. For example, the vector v_t can be obtained by applying 
 
 <img src='../images/Modeling-Video-Evolution-For-Action-Recognition/2.png' width='450'>
 
-条件1，u^𝑇 ⋅ (v\_ti − v\_tj ) ≥ 1 − 𝜖\_𝑖𝑗，即是要满足排序条件大于一个单位量并且有一个松弛因子，如果松弛因子过大会惩罚优化函数。在作者的开源代码(VideoDarwin.m)中作者是通过SVR来解决排序问题，既给每一帧赋予一个label，比如第一帧的label是1，第二帧是2，依次类推...然后训练一个SVR回归模型求得权重向量u。其实最简单的就是用线性回归进行求解，在论文中也表示这样也是可行的(any other linear learning to rank method can be employed to learn VideoDarwin)。
+条件1，u^𝑇 ⋅ (v\_ti − v\_tj ) ≥ 1 − 𝜖\_𝑖𝑗，即是要满足排序条件大于一个单位量并且有一个松弛因子，如果松弛因子过大会惩罚优化函数。在作者的开源代码(VideoDarwin.m)中作者是通过SVR来解决排序问题(因为SVR比RankSVM要快，并且具有相似的结果)，既给每一帧赋予一个label，比如第一帧的label是1，第二帧是2，依次类推...然后训练一个SVR回归模型求得权重向量u。其实最简单的就是用线性回归进行求解，在论文中也表示这样也是可行的(any other linear learning to rank method can be employed to learn VideoDarwin)。
 
 ## Vector valued functions for VideoDarwin
 
@@ -63,9 +65,31 @@ up to time 𝑡, x_1:t. For example, the vector v_t can be obtained by applying 
 
 ## Experiments
 
+在实验中作者还提到:
 
+1. Forward VideoDarwin(FDVD)，就是将帧按时间[x_1,x_2,...,x_n]进行训练得到u_fow.
+2. Reverse & Forward VideoDarwin by RFDVD，就是既按上面方式得到u_fow，然后将帧逆序[x_n,x_n-1,...,x_1]进行训练得到u_rev.
+3. non-linear forward VideoDarwin by NL-FDVD，就是对特征进行一个非线性映射然后再进行FDVD训练。
+4. nonlinear reverse & forward VideoDarwin by NL-RFDVD，就是对特征进行一个非线性映射然后再进行RFDVD训练。
+
+选择的baseline对比方法是：
+
+As a first baseline we use the state-of-the-art trajectory features (i.e. improved trajectories and dense trajectories) and pipelines as [1,2]. As this trajectory based baseline mainly considers local temporal information we refer to this baseline
+as **local**. 
+
+We also compare with temporal pyramids (**TP**), by first splitting the video into two equal size subvideos, then computing a representation for each of them like spatial pyramids [3].
+
+VideoDarwin选取的特征：(HOG, HOF, MBH and TRJ). 编码方法有用到：GMMs, PCA, Fisher vectors, bag-of-words
+
+对比的结果如下，这里就选了HMDB51数据集的结果展示，剩下的数据集的类似效果，详见论文。
+
+<img src='../images/Modeling-Video-Evolution-For-Action-Recognition/4.png' width='450'>
 
 ## Conclusion
 
+一种无监督的时序信息建模的方法。
 
 ## References
+[1] H. Wang, A. Kl¨aser, C. Schmid, and C.-L. Liu. Dense trajectories and motion boundary descriptors for action recognition. IJCV, 103:60–79, 2013. 1, 2, 5, 6, 8
+[2] H. Wang and C. Schmid. Action recognition with improved trajectories. In ICCV, 2013. 1, 2, 5, 6, 8
+[3] S. Lazebnik, C. Schmid, and J. Ponce. Beyond bags of features: Spatial pyramid matching for recognizing natural scene categories. In CVPR, 2006. 1, 5
