@@ -90,6 +90,9 @@ VideoDarwin选取的特征：(HOG, HOF, MBH and TRJ). 编码方法有用到：GM
 一种无监督的时序信息建模的方法。
 
 ## References
+
 [1] H. Wang, A. Kl¨aser, C. Schmid, and C.-L. Liu. Dense trajectories and motion boundary descriptors for action recognition. IJCV, 103:60–79, 2013. 1, 2, 5, 6, 8
+
 [2] H. Wang and C. Schmid. Action recognition with improved trajectories. In ICCV, 2013. 1, 2, 5, 6, 8
+
 [3] S. Lazebnik, C. Schmid, and J. Ponce. Beyond bags of features: Spatial pyramid matching for recognizing natural scene categories. In CVPR, 2006. 1, 5
