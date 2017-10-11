@@ -54,9 +54,9 @@ of the video, we learn how to arrange them in chronological order, based on the 
 
 这节主要是提及上面没有解释的向量价值函数V的选取，论文中探寻了3种形式的向量价值函数：
 
-1. Independent Frame Representation. \\(V(t) = \frac{x_t}{\left\|x_t\right\|}\\)
+1. Independent Frame Representation. \\(V(t) = \frac{x_t}{\left\|x_t\right\|}\\).
 2. Moving Average (MA). \\(\sum_{t}^{t+T} x_t\\).
-3. Time Varying Mean Vectors. \\(m_t = \frac{1}{t} \cdot \sum_{i=1}^{t} x_i, v_t = m_t / \left\|m_t\right\|\\)
+3. Time Varying Mean Vectors. \\(m_t = \frac{1}{t} \cdot \sum_{i=1}^{t} x_i, v_t = m_t / \left\|m_t\right\|\\).
 
 作者通过实验证明第三种方式效果最好。
 
@@ -68,8 +68,8 @@ of the video, we learn how to arrange them in chronological order, based on the 
 
 VideoDarwin选取的特征：[HOG, HOF, MBH](http://blog.csdn.net/wzmsltw/article/details/52752587) and TRJ. 编码方法有用到：GMMs, PCA, Fisher vectors, bag-of-words，在实验中作者还提到下面几种编码方法:
 
-1. Forward VideoDarwin(FDVD)，就是将帧按时间\\([x_1,x_2,...,x_n]\\)进行训练得到\\(u_fow\\).
-2. Reverse & Forward VideoDarwin by RFDVD，就是既按上面方式得到\\(u_fow\\)，然后将帧逆序\\([x_n,x_n-1,...,x_1]\\)进行训练得到\\(u_rev\\).
+1. Forward VideoDarwin(FDVD)，就是将帧按时间\\([x_1,x_2,...,x_n]\\)进行训练得到\\(u_{fow}\\).
+2. Reverse & Forward VideoDarwin by RFDVD，就是既按上面方式得到\\(u_{fow}\\)，然后将帧逆序\\([x_n,x_{n-1},...,x_1]\\)进行训练得到\\(u_{rev}\\).
 3. non-linear forward VideoDarwin by NL-FDVD，就是对特征进行一个非线性映射然后再进行FDVD训练。
 4. nonlinear reverse & forward VideoDarwin by NL-RFDVD，就是对特征进行一个非线性映射然后再进行RFDVD训练。
 
