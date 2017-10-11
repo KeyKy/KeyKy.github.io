@@ -29,6 +29,8 @@ Modeling the video-wide temporal evolution of appearance in videos remains a cha
 Nevertheless, it is clear that many actions have a characteristic temporal ordering. More precisely, given all the frames
 of the video, we learn how to arrange them in chronological order, based on the content of the frames.
 
+<img src='../images/Modeling-Video-Evolution-For-Action-Recognition/1.png' width='800'>
+
 ## Related work
 
 略...
@@ -41,9 +43,9 @@ up to time 𝑡, x_1:t. For example, the vector v_t can be obtained by applying 
 3. Define 𝜓(v; u) = u𝑇 ⋅ v. 
 4. Namely, the learning to rank problem optimizes the parameters u of the function 𝜓(v; u), such that ∀𝑖, 𝑗 , v_i ≻ v_j ⇐⇒ u𝑇 ⋅v_i > u𝑇 ⋅v_j.
 
-这里的思想是找到一个向量u,使得v_i和v_j在该方向上的投影仍然满足时序排序，那么该向量就能表征时序上的演变，也能把许多帧用一个向量表示。论文中给出了向量u的优化求法：
+这里的思想是找到一个向量u,使得v_i和v_j在该方向上的投影仍然满足时序排序，那么该向量就能表征时序上的演变，也能把许多帧用一个向量表示。论文中给出了向量u的优化求法，据论文所述是使用RankSVM：
 
-![_config.yml]({{ site.baseurl }}/images/Modeling-Video-Evolution-For-Action-Recognition/2.png)
+<img src='../images/Modeling-Video-Evolution-For-Action-Recognition/2.png' width='800'>
 
 
 
