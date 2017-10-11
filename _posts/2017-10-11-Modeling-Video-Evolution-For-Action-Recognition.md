@@ -11,19 +11,18 @@ title: Modeling Video Evolution For Action Recognition
 
 ## Introduction
 
-本文说在过去十年动作识别的研究主要是在设计时间空间(spatio-temporal)的特征：
+在过去十年动作识别的研究主要是在设计时间空间(spatio-temporal)的特征，下面有关的几篇论文：
 
-1. Dog
-    1. German Shepherd
-    2. Belgian Shepherd
-        1. Malinois
-        2. Groenendael
-        3. Tervuren
-2. Cat
-    1. Siberian
-    2. Siamese
+1. from temporal interest points over dense sampling to dense trajectories.
+    1. [On space-time interest points]
+    2. [Learning realistic human actions from movies]
+    3. [Dense trajectories and motion boundary descriptors for action recognition]
+2. from gradient-based descriptors to motion-based and motion-compensated ones.
+    1. [Better exploiting motion for better action recognition]
+3. adoption of powerful encoding schemes, Fisher Vectors.
+    1. [Action recognition with improved trajectories]
 
-本文还提到从视觉上建模时序的演变信息比较困难，研究者们提出了很多方法建模时序信息：HMM，CRF，deep network.
+提到从视觉上建模时序的演变信息比较困难，研究者们提出了很多方法建模时序信息：HMM，CRF，deep network.
 
 Modeling the video-wide temporal evolution of appearance in videos remains a challenging task, due to the **large variability and complexity of video data**. Actions are performed at **largely varying speeds**. Also the speed of the action often **varies non-linearly** within a single video.
 
