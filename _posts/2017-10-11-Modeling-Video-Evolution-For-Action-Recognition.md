@@ -54,9 +54,9 @@ of the video, we learn how to arrange them in chronological order, based on the 
 
 这节主要是提及上面没有解释的向量价值函数V的选取，论文中探寻了3种形式的向量价值函数：
 
-1. Independent Frame Representation. \\(V(t) = x_t / \left\|x_t\right\|\\)
+1. Independent Frame Representation. \\(V(t) = \frac{x_t}{\left\|x_t\right\|}\\)
 2. Moving Average (MA). \\(\sum_{t}^{t+T} x_t\\).
-3. Time Varying Mean Vectors. \\(m_t = \frac{1}{t} \cdot \sum_{i=1}^{t} x_i, v_t = m_t / \left|m_t\right|\\)
+3. Time Varying Mean Vectors. \\(m_t = \frac{1}{t} \cdot \sum_{i=1}^{t} x_i, v_t = m_t / \left\|m_t\right\|\\)
 
 作者通过实验证明第三种方式效果最好。
 
