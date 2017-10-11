@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vision in Meitu
+title: You're up and running!
 ---
 
 *   [Video Action]
