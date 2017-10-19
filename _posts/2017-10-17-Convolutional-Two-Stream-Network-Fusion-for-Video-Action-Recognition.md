@@ -18,10 +18,16 @@ title: Convolutional Two-Stream Network Fusion for Video Action Recognition
 这节主要研究的是Two-Stream网络结构空间融合的方式。Two-Stream网络是由两个网络构成的，空间网络输入的是一张RGB图像，时序网络输入的是10张光流图片，这里说的是以哪种方式融合空间网络和时序网络。本人觉得Two-Stream可以用如下MXNet伪代码表示，论文中是用VGG-M-2048：
 
 ```
+asd
+```
+
+```
 rgb_data = mx.sym.Variable(name='rgb_data') # (1,3,224,224)
 rgb_stream = mx.sym.VGGM2048(data=rgb_data) 
 rgb_fc = rgb_stream.get_internels()['rgb_fc_output'] # 取出fc分类层 (1,C)
+```
 
+```
 flo_data = mx.sym.Variable(name='flo_data') # (1,10,224,224)
 flo_stream = mx.sym.VGGM2048(data=flo_data) 
 flo_fc = flo_stream.get_internels()['flo_fc_output'] 取出fc分类层（1,C)
@@ -57,6 +63,8 @@ $$y^{bil} = \sum_{i=1}^{H} \sum_{j=1}^{W} (x_{i,j}^{a})^T x_{i,j}^b $$
 最终作者通过实验有如下结果：
 
 <img src='../images/Convolutional-Two-Stream-Network-Fusion-for-Video-Action-Recognition/1.png' width='600'>
+
+实验结果说明在ReLU5进行Fusion参数数目更少，使用Bilinear、Sum、Conv融合效果较好，其中参数数目少主要是因为两个网络不再各自拥有FC层。
 
 ## Where to fuse the networks
 
