@@ -17,8 +17,7 @@ title: Convolutional Two-Stream Network Fusion for Video Action Recognition
 
 这节主要研究的是Two-Stream网络结构空间融合的方式。Two-Stream网络是由两个网络构成的，空间网络输入的是一张RGB图像，时序网络输入的是10张光流图片，这里说的是以哪种方式融合空间网络和时序网络。本人觉得Two-Stream可以用如下MXNet伪代码表示，论文中是用VGG-M-2048：
 
-```
-rgb_data = mx.sym.Variable(name='rgb_data') # (1,3,224,224)
+<div class="highlight"><pre class="highlight"><code>rgb_data = mx.sym.Variable(name='rgb_data') # (1,3,224,224)
 rgb_stream = mx.sym.VGGM2048(data=rgb_data) 
 rgb_fc = rgb_stream.get_internels()['rgb_fc_output'] # 取出fc分类层 (1,C)
 flo_data = mx.sym.Variable(name='flo_data') # (1,10,224,224)
@@ -28,7 +27,7 @@ flo_fc = flo_stream.get_internels()['flo_fc_output'] 取出fc分类层（1,C)
 # 这篇论文正是讨论如何融合以及融合的位置
 net = 0.5 * rgb_fc + 0.5 * flo_fc 
 net = mx.sym.softmax(data=net, name='softmax')
-```
+</code></pre></div>
 
 论文中的几种简单的融合方式都用MXNet的伪代码表示:
 
