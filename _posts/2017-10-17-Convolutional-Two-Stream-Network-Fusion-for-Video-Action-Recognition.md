@@ -31,8 +31,7 @@ net = mx.sym.softmax(data=net, name='softmax')
 
 论文中的几种简单的融合方式都用MXNet的伪代码表示:
 
-<pre class="highlight"><code>
-# 获得中间某层输出
+<pre class="highlight"><code># 获得中间某层输出
 rgb = rgb_stream.get_internels()['conv_xxx'] # (1,C,H,W)
 flo = flo_stream.get_internels()['conv_xxx'] # (1,C,H,W)
 # sum fusion
