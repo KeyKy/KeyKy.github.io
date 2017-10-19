@@ -61,6 +61,11 @@ $$y^{bil} = \sum_{i=1}^{H} \sum_{j=1}^{W} (x_{i,j}^{a})^T x_{i,j}^b $$
 
 ## Where to fuse the networks
 
+该节主要是说融合发生在哪层最好，两个stream融合只要保证feature maps的H和W一样。作者基于Conv融合研究了几个可能的融合处，结果如下：
+
+<img src='../images/Convolutional-Two-Stream-Network-Fusion-for-Video-Action-Recognition/2.png' width='600'>
+
+说明了，融合发生在ReLU5效果最好，是否能得到一个结论融合越晚越好呢？值得思考。作者还发现再在FC8处进行融合效果还会提升，看来融合发生在越后面信息量越好。
 
 ## Temporal fusion
 
