@@ -107,8 +107,3 @@ VideoDarwin选取的特征：[HOG, HOF, MBH](http://blog.csdn.net/wzmsltw/articl
 
 1. http://lear.inrialpes.fr/~wang/improved_trajectories
 2. https://lear.inrialpes.fr/people/wang/dense_trajectories
-
-
-```
-asdasd just a test
-```
