@@ -68,6 +68,7 @@ $$y^{bil} = \sum_{i=1}^{H} \sum_{j=1}^{W} (x_{i,j}^{a})^T x_{i,j}^b $$
 
 ## Temporal fusion
 
+感觉本文只讲到了三种时序融合就是3D卷积和3DPooling，另外一种2DPooling只是减少feature maps的空间尺寸，最后只是预测结果概率的平均（类似于Single Frame模型）。
 
 ## Proposed architecture
 
