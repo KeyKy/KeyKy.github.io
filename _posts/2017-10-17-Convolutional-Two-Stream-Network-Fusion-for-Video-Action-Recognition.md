@@ -9,10 +9,6 @@ title: Convolutional Two-Stream Network Fusion for Video Action Recognition
 
 本文主要是研究了很多spatial融合和temporal融合的方法。包括融合的位置和融合的方式，并根据以上结论提出了一个自己的方法。
 
-## Introduction
-
-无...
-
 ## Related work
 
 介绍了几篇比较重要的论文，[1]这篇论文介绍了几种temporal sampling的方法，包括single frame, early fusion, late fusion和slow fusion。[2]这篇论文验证了temporal pooling of convolution layers performs better than slow, local, or late pooling, as well as temporal convolution，也验证了LSTM并没比temporal pooling效果好。还提及了C3D，two stream，bilinear model与本文比较相关的论文。
@@ -58,8 +54,9 @@ $$y^{bil} = \sum_{i=1}^{H} \sum_{j=1}^{W} (x_{i,j}^{a})^T x_{i,j}^b $$
 
 其中\\(x_{i,j}^{a}\\)是一个\\(C\\)维度的向量，\\(x_{i,j}^{b}\\)是一个\\(C\\)维度的向量，\\(y^{bil}\\)是一个\\(C^2)\\)维度的向量。
 
-## conv fusion
+最终作者通过实验有如下结果：
 
+<img src='../images/Convolutional-Two-Stream-Network-Fusion-for-Video-Action-Recognition/1.png' width='600'>
 
 ## Where to fuse the networks
 
