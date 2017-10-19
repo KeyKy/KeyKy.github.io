@@ -31,7 +31,7 @@ net = mx.sym.softmax(data=net, name='softmax')
 
 论文中的几种简单的融合方式都用MXNet的伪代码表示:
 
-```
+<pre class="highlight"><code>
 # 获得中间某层输出
 rgb = rgb_stream.get_internels()['conv_xxx'] # (1,C,H,W)
 flo = flo_stream.get_internels()['conv_xxx'] # (1,C,H,W)
@@ -44,7 +44,7 @@ net = mx.sym.concat(rgb, flo, dim=1)
 # conv fusion
 net = mx.sym.concat(rgb, flo, dim=1) # (1,2C,H,W)
 net = mx.sym.Convolution(data=net, num_filter=C, pad=(0,0), kernel=(1,1), stride=(1,1))
-```
+</code></pre>
 
 Bilinear Fusion模型就用公式表示：
 
@@ -71,6 +71,7 @@ $$y^{bil} = \sum_{i=1}^{H} \sum_{j=1}^{W} (x_{i,j}^{a})^T x_{i,j}^b $$
 感觉本文只讲到了三种时序融合就是3D卷积和3DPooling，另外一种2DPooling只是减少feature maps的空间尺寸，最后只是预测结果概率的平均（类似于Single Frame模型）。
 
 ## Proposed architecture
+
 
 
 ## Implementation details
