@@ -76,4 +76,5 @@ $$y^{bil} = \sum_{i=1}^{H} \sum_{j=1}^{W} (x_{i,j}^{a})^T x_{i,j}^b $$
 ## References
 
 [1] Large-scale video classification with convolutional neural networks.
+
 [2] Beyond short snippets: Deep networks for video classification.
