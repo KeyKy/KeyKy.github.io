@@ -20,9 +20,11 @@ title: Convolutional Two-Stream Network Fusion for Video Action Recognition
 <pre class="highlight"><code>rgb_data = mx.sym.Variable(name='rgb_data') # (1,3,224,224)
 rgb_stream = mx.sym.VGGM2048(data=rgb_data) 
 rgb_fc = rgb_stream.get_internels()['rgb_fc_output'] # 取出fc分类层 (1,C)
+
 flo_data = mx.sym.Variable(name='flo_data') # (1,10,224,224)
 flo_stream = mx.sym.VGGM2048(data=flo_data) 
 flo_fc = flo_stream.get_internels()['flo_fc_output'] 取出fc分类层（1,C)
+
 # 这里融合方式是fc层的分类概率融合
 # 这篇论文正是讨论如何融合以及融合的位置
 net = 0.5 * rgb_fc + 0.5 * flo_fc 
