@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Towards-Scalable-Pre-training-of-Visual-Tokenizers-for-Generation
+title: Towards Scalable Pre-training of Visual Tokenizers for Generation
 ---
 
 [[pdf](https://arxiv.org/pdf/2512.13687)][[code](https://github.com/MiniMax-AI/VTP)]
