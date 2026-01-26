@@ -1,14 +1,21 @@
 ---
 layout: post
-title: 数据管线（闲暇调研中）
+title: Enhancing LLM Planning Capabilities through Intrinsic Self-Critique
 ---
 
-## 背景
+[[pdf](https://arxiv.org/pdf/2512.24103)]
 
-在大语言模型（LLM）的开发过程中，业界已经达成共识：“数据质量决定了模型的上限”。随着模型参数量进入千亿级，简单的、无启发式的规则过滤的Python脚本已无法满足高性能需求。在 LLM 时代之前，大规模数据处理主要依赖基于 Hadoop 生态的 MapReduce 或基于数据仓库的 Hive (HQL)。虽然这些方案在处理结构化数据时非常成熟，但在面对非结构化大模型语料时，存在明显的短板。
+## 个人思考
 
-## 可调研的方案
+大模型幻觉现象的产生，很大程度上归因于其内在自我评价与验证机制的缺失。因此，探索大模型如何进行有效的自我批判（Self-Critique），并构建一套严密的输出质量评估体系，是提升模型逻辑可靠性、解决复杂规划问题的关键科研方向。
 
-1. [data-juicer](https://github.com/datajuicer/data-juicer)
-2. [DataFlow](https://github.com/OpenDCAI/DataFlow)
-3. [Curator](https://github.com/NVIDIA-NeMo/Curator)
+## 论文方案
+
+论文提出了一种大模型如何实现"自我批判"的方案。文中最后有prompt的template，方案归纳如下：
+1. 设计Prompt，让大模型针对Planning任务输出plan
+2. 上述的plan，给出验证规则和通过条件，让大模型自行验证plan是正确、错误还是无法达到通过条件。
+3. 将不正确的plan作为fewshot例子，加入到大模型上下文中，重复1，直到输出的plan被验证通过或者达到迭代次数上限。
+
+## 对比方法
+
+论文中四种方案的对比：No-Critique, Self-Critique, Self-{Critique+Consistency}, and Oracle。其中Oracle（先知）即存在验证器可以从外部引入工具来判断模型输出plan的正确性。Self-consistency可以参考[文章](https://arxiv.org/pdf/2203.11171)。Self-{Critique+Consistency}基本上可以逼近Oracle。
