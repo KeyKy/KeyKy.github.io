@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Over-Tokenized Transformer: Vocabulary is Generally Worth Scaling
+title: Over-Tokenized Transformer Vocabulary is Generally Worth Scaling
 ---
 
 ## 个人思考
