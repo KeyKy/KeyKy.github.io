@@ -8,5 +8,8 @@ title: 数据管线（闲暇调研中）
 ## 可调研的方案
 
 1. [data-juicer](https://github.com/datajuicer/data-juicer)
+
+data-juicer主要是通过datasets库和ray库来实现数据管线，它实现了很多管线算法，map式的就是通过ray库dataset的map_batches实现。
+
 2. [DataFlow](https://github.com/OpenDCAI/DataFlow)
 3. [Curator](https://github.com/NVIDIA-NeMo/Curator)
